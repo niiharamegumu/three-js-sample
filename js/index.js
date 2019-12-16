@@ -13,21 +13,20 @@ const generateRenderer = (width, height, selector) => {
 
 const init = () => {
 
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const
+        width = window.innerWidth,
+        height = window.innerHeight,
+        renderer = generateRenderer(width, height, "#canvas"),
+        scene = new THREE.Scene(),
+        camera = new THREE.PerspectiveCamera(100, width / height, 10000, 100),
+        geometry = new THREE.SphereGeometry(),
+        SIZE = 2000,
+        POINT_NUM = 4000;
 
-    const renderer = generateRenderer(width, height, "#canvas");
-
-    const scene = new THREE.Scene();
-
-    const camera = new THREE.PerspectiveCamera(100, width / height, 10000, 100);
     camera.updateProjectionMatrix();
     camera.position.set(1, 1, +1000);
 
-    const geometry = new THREE.SphereGeometry();
-    const SIZE = 2000;
-    const LENGTH = 4000;
-    for (let i = 0; i < LENGTH; i++) {
+    for (let i = 0; i < POINT_NUM; i++) {
         geometry.vertices.push(new THREE.Vector3(
             SIZE * (Math.random() - 0.5),
             SIZE * (Math.random() - 0.5),
@@ -46,7 +45,6 @@ const init = () => {
 
     function run() {
         mesh.rotation.y += 0.0001;
-        // mesh.rotation.x += 0.0001;
         renderer.render(scene, camera);
 
         requestAnimationFrame(run);

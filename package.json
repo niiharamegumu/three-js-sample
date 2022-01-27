@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/niiharamegumu/three-js-sample#readme",
   "dependencies": {
-    "three": "^0.111.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
